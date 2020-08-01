@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 text_content_clustering
 ==============================
 
@@ -56,6 +55,3 @@ Project Organization
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
-=======
-# NLP-text-content-clustering
->>>>>>> b83720d1269773b2e9c14d7e025584ed9ce6b225
