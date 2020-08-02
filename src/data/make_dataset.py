@@ -1,30 +1,33 @@
-# -*- coding: utf-8 -*-
-import click
-import logging
-from pathlib import Path
-from dotenv import find_dotenv, load_dotenv
+from src.data import utils
+import wikipedia
+import pandas as pd
 
 
-@click.command()
-@click.argument('input_filepath', type=click.Path(exists=True))
-@click.argument('output_filepath', type=click.Path())
-def main(input_filepath, output_filepath):
-    """ Runs data processing scripts to turn raw data from (../raw) into
-        cleaned data ready to be analyzed (saved in ../processed).
-    """
-    logger = logging.getLogger(__name__)
-    logger.info('making final data set from raw data')
+def from_folder(folder_path):
+    text_data, labels = utils.get_directory_text(folder_path)
+    return text_data, labels
 
 
-if __name__ == '__main__':
-    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(level=logging.INFO, format=log_fmt)
+def from_random_wiki(num_articles, summary=False):
+    # generate random articles
+    some_wikipedia_articles = wikipedia.random(num_articles)
+    text_data, labels = utils.get_from_wiki(some_wikipedia_articles, summary)
+    return text_data, labels
 
-    # not used in this stub but often useful for finding various files
-    project_dir = Path(__file__).resolve().parents[2]
 
-    # find .env automagically by walking up directories until it's found, then
-    # load up the .env entries as environment variables
-    load_dotenv(find_dotenv())
+def from_wiki(article_names, summary=False):
+    text_data, labels = utils.get_from_wiki(article_names, summary)
+    return text_data, labels
 
-    main()
+
+def clean_data(text_data):
+    original_words = []
+    changed_words = []
+    data = []
+    for text in text_data:
+        cleaned_text, vocabulary, stemmed_lemmatized_words = utils.clean_text(text)
+        original_words.extend(vocabulary)
+        changed_words.extend(stemmed_lemmatized_words)
+        data.append(cleaned_text)
+    changed_to_original = pd.Series(original_words, index=changed_words)
+    return data, changed_to_original

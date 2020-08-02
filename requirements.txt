@@ -6,6 +6,5 @@ pandas
 numpy
 wikipedia
 os
-pandas
 nltk
 sklearn
