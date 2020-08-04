@@ -19,7 +19,3 @@ def main():
                 required_major, sys.version))
     else:
         print(">>> Development environment passes all tests!")
-
-
-if __name__ == '__main__':
-    main()
