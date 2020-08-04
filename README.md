@@ -15,8 +15,8 @@ Here are the steps used to cluster the text:
 7. Join back into full text
 8. Repeat for all text
 ###### Model Creation and Clustering
-9. Generate the tf-idf table using sci-kit learn tf-idf
-10. Create a 2D visualization of the tf-idf data using sci-kit learn TSNE
+9. Generate the tf-idf table using scikit-learn tf-idf
+10. Create a 2D visualization of the tf-idf data using scikit-learn learn TSNE
 11. Prompt user for number of clusters for KMeans
 12. Apply KMeans clustering to the data
 13. Print the cluster assignments as well as the most prominent words in each cluster (as defined by cluster center values)
