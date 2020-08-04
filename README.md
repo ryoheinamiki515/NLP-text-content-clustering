@@ -1,57 +1,24 @@
-Text Document Clustering
-==============================
+# Text Document Clustering
 
 Using NLP to cluster text together. Uses Wikipedia articles in example
 
-Project Organization
-------------
+## Process
+Here are the steps used to cluster the text:
+###### Preprocessing
+1. Collect raw text
+2. Cast text to lowercase
+3. Remove symbols: !\"#$%&()*+-./:;<=>?@[\]^_`{|}~\n,—' (configurable in src --> data --> utils.py)
+4. Tokenize
+5. Remove stop words using NLTK defualt English stop words (configurable in src --> data --> utils.py)
+5. Lemmatize
+6. Stem
+7. Join back into full text
+8. Repeat for all text
+###### Model Creation and Clustering
+9. Generate the tf-idf table using sci-kit learn tf-idf
+10. Create a 2D visualization of the tf-idf data using sci-kit learn TSNE
+11. Prompt user for number of clusters for KMeans
+12. Apply KMeans clustering to the data
+13. Print the cluster assignments as well as the most prominent words in each cluster (as defined by cluster center values)
+14. Show the final labeling on the visualization
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
-
-
---------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
