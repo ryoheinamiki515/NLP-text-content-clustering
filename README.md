@@ -1,4 +1,4 @@
-text_content_clustering
+Text Document Clustering
 ==============================
 
 Using NLP to cluster text together. Uses Wikipedia articles in example
