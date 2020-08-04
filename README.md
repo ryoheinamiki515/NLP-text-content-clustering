@@ -10,15 +10,15 @@ Here are the steps used to cluster the text:
 3. Remove symbols: !\"#$%&()*+-./:;<=>?@[\]^_`{|}~\n,—' (configurable in src --> data --> utils.py)
 4. Tokenize
 5. Remove stop words using NLTK defualt English stop words (configurable in src --> data --> utils.py)
-5. Lemmatize
-6. Stem
-7. Join back into full text
-8. Repeat for all text
+6. Lemmatize
+7. Stem
+8. Join back into full text
+9. Repeat for all text
 ###### Model Creation and Clustering
-9. Generate the tf-idf table using scikit-learn tf-idf
-10. Create a 2D visualization of the tf-idf data using scikit-learn learn TSNE
-11. Prompt user for number of clusters for KMeans
-12. Apply KMeans clustering to the data
-13. Print the cluster assignments as well as the most prominent words in each cluster (as defined by cluster center values)
-14. Show the final labeling on the visualization
+10. Generate the tf-idf table using scikit-learn tf-idf
+11. Create a 2D visualization of the tf-idf data using scikit-learn learn TSNE
+12. Prompt user for number of clusters for KMeans
+13. Apply KMeans clustering to the data
+14. Print the cluster assignments as well as the most prominent words in each cluster (as defined by cluster center values)
+15. Show the final labeling on the visualization
 
